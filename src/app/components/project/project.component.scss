@@ -1,0 +1,93 @@
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    grid-auto-rows: 1fr;
+    gap: 1em;
+    padding: 1em;
+  }
+
+  .project {
+    padding: 1rem;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #5bbfab;
+    text-align: center;
+    border-radius: 10px;
+    text-decoration: none;
+    border-radius: 20px;
+    background-color: #3f525c;
+    box-sizing: border-box;
+  }
+
+  .project:hover {
+    color: #5bbf79;
+    background-color: #000;
+  }
+
+  .project-div:hover {
+    background-color: #000;
+    color: #5bbf79
+  }
+
+  #github-projects {
+    background-color: #303841;
+    font-family: sans-serif;
+  }
+
+  h2 {
+    padding: 10px;
+    color: #5bbf79;  
+  }
+
+  h2:hover {
+    padding-left: 12px;
+    color: #5bbfab;
+  }
+
+  .title-link {
+    text-decoration: none;
+  }
+
+  .error {
+    color: #bf5a5b;
+  }
+
+  .project-div {
+    border-radius: 20px;
+    background-color: #3f525c;
+  }
+
+  .square-button {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  background-color: #5bbf79;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  user-select: none;
+  touch-action: manipulation;
+  margin: auto;
+}
+
+  .square-button:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+
+.square-button:hover {
+  background-color: #bf8a59;
+  color:#000
+}
+
+.center {
+  text-align: center;
+  vertical-align:super;
+}
+ 
+ 
