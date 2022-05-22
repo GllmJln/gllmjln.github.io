@@ -14,7 +14,7 @@ export class ProjectService {
     private http: HttpClient
   ) { }
 
-  private url = environment.apiUrl
+  private url = environment.apiURL
 
   getProjects() {
     return this.http.get<Project[] | string>(this.url)
