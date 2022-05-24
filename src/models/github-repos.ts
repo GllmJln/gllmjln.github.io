@@ -1,4 +1,4 @@
-export interface Project {
+export interface Repo {
     name: string,
     description: string,
     pushed_at: Date,

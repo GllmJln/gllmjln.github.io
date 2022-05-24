@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LandingPageComponent } from './components/landing-page/landing-page.component';
-import { ProjectComponent } from './components/project/project.component';
+import { GithubProjectsComponent } from './components/github-projects/github-projects.component';
+import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { ProjectsPageComponent } from './pages/projects-page/projects-page.component';
 
 const routes: Routes = [
-  { path: 'projects', component: ProjectComponent },
+  { path: 'projects', component: ProjectsPageComponent },
+  { path: 'projects/github', component: GithubProjectsComponent },
   { path: 'welcome', component: LandingPageComponent },
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
 ]

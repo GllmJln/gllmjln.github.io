@@ -1,0 +1,112 @@
+
+
+.project-list {
+  grid-auto-rows: 1fr;
+  padding: 1em;
+  --grid-layout-gap: 20px;
+  --grid-column-count: 4;
+  --grid-item--min-width: 300px;
+  --gap-count: calc(var(--grid-column-count) - 1);
+  --total-gap-width: calc(var(--gap-count) * var(--grid-layout-gap));
+  --grid-item--max-width: calc((100% - var(--total-gap-width)) / var(--grid-column-count));
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr));
+  grid-gap: var(--grid-layout-gap);
+
+  }
+
+.project {
+  padding: 1rem;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: var(--blue);
+  text-align: center;
+  border-radius: 10px;
+  text-decoration: none;
+  border-radius: 20px;
+  background-color: var(--light-gray);
+  box-sizing: border-box;
+}
+
+  .project:hover {
+    color: var(--green);
+    background-color: var(--dark-gray);
+  }
+
+
+  #github-projects {
+    background-color: var(--backgroud-gray);
+    font-family: sans-serif;
+  }
+
+  h2 {
+    padding: 10px;
+    color: var(--green);  
+  }
+
+  h2:hover {
+    padding-left: 12px;
+    color: var(--blue);
+  }
+
+  .title-link {
+    text-decoration: none;
+  }
+
+  .error {
+    color: #bf5a5b;
+  }
+
+
+  .square-button {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--black);
+  background-color: var(--green);
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  user-select: none;
+  touch-action: manipulation;
+  margin: auto;
+}
+
+  .square-button:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+
+.square-button:hover {
+  background-color: var(--orange);
+  animation-name: flash;
+  animation-duration: 0.75s;
+  animation-delay: 50ms;
+  animation-iteration-count: infinite;
+}
+
+.center {
+  text-align: center;
+  // vertical-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+ 
+@media (max-width: 600px){
+  .project-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes flash {
+  0% {background-color: var(--orange);}
+  50% {background-color: var(--purple);}
+  100% {background-color: var(--orange);}
+}

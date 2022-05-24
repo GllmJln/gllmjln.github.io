@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Project } from 'src/models/project';
-import { catchError, map, Observable, of, pluck } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Repo } from 'src/models/github-repos';
+import { catchError, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 
@@ -17,7 +17,7 @@ export class ProjectService {
   private url = environment.apiURL
 
   getProjects() {
-    return this.http.get<Project[] | string>(this.url)
+    return this.http.get<Repo[] | string>(this.url)
       .pipe(
         catchError((error) => {
           switch (error.status) {
