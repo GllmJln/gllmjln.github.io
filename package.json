@@ -9,7 +9,7 @@
     "test": "jest --max-workers=3 --colors --coverage",
     "test:coverage": "jest --coverage",
     "mock-api": "json-server --watch db.json",
-    "deploy": "git add . && git stash && git checkout gh-pages && npm run test && ng build && ngh --dir=dist/personal-website && git checkout master && git stash pop"
+    "deploy": "git add . && git stash && git checkout gh-pages && git merge master && npm run test && ng build && ngh --dir=dist/personal-website && git checkout master && git stash pop"
   },
   "private": true,
   "dependencies": {

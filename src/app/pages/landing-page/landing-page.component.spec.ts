@@ -27,6 +27,6 @@ describe('LandingPageComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.debugElement;
     const title = compiled.query(By.css('h1')).nativeElement.innerHTML
-    expect(title).toEqual('hegajout');
+    expect(title).toEqual('Thegajout');
   });
 });
