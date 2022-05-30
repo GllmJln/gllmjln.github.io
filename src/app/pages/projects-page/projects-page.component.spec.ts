@@ -1,4 +1,6 @@
+import { APP_BASE_HREF } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AppModule } from '../../app.module';
 
 import { ProjectsPageComponent } from './projects-page.component';
 
@@ -8,9 +10,14 @@ describe('ProjectsPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProjectsPageComponent ]
+      declarations: [ProjectsPageComponent],
+      imports: [AppModule],
+      providers: [
+        { provide: APP_BASE_HREF, useValue: '/' }
+      ]
+
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

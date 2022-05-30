@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Repo } from 'src/models/github-repos';
 import { catchError, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
 
 
 @Injectable({

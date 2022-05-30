@@ -1,4 +1,6 @@
+import { APP_BASE_HREF } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AppModule } from '../../app.module';
 
 import { NavbarComponent } from './navbar.component';
 
@@ -8,9 +10,13 @@ describe('NavbarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavbarComponent ]
+      declarations: [NavbarComponent],
+      imports: [AppModule],
+      providers: [
+        { provide: APP_BASE_HREF, useValue: '/' }
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

@@ -1,5 +1,8 @@
+import { APP_BASE_HREF } from '@angular/common';
 import { TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
+import { AppModule } from './app.module';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -7,6 +10,12 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      imports: [
+        AppModule
+      ],
+      providers: [
+        { provide: APP_BASE_HREF, useValue: '/' }
+      ]
     }).compileComponents();
   });
 
@@ -22,10 +31,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('personal-website');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('personal-website app is running!');
-  });
 });

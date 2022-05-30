@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 
 import { LandingPageComponent } from './landing-page.component';
 
@@ -8,9 +9,9 @@ describe('LandingPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LandingPageComponent ]
+      declarations: [LandingPageComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +22,11 @@ describe('LandingPageComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('should render title', () => {
+    fixture.detectChanges();
+    const compiled = fixture.debugElement;
+    const title = compiled.query(By.css('h1')).nativeElement.innerHTML
+    expect(title).toEqual('hegajout');
   });
 });
