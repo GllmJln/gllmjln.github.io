@@ -1,6 +1,6 @@
 # Personal Website
 
-This is a personal website mostly used from practicing angular and the jest framework. The webiste can be access [here](https://thegajout.github.io)
+This is a personal website mostly used from practicing angular and the jest framework. The website can be access [here](https://thegajout.github.io).
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
 ## Running locally
