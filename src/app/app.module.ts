@@ -8,6 +8,7 @@ import { GithubProjectsComponent } from './components/github-projects/github-pro
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProjectsPageComponent } from './pages/projects-page/projects-page.component';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ProjectsPageComponent } from './pages/projects-page/projects-page.compo
     LandingPageComponent,
     GithubProjectsComponent,
     NavbarComponent,
-    ProjectsPageComponent
+    ProjectsPageComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,

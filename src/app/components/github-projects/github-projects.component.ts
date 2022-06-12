@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { finalize } from 'rxjs';
 import { Repo } from 'src/models/github-repos';
 import { ProjectService } from '../../services/project.service';
 
@@ -11,7 +12,8 @@ export class GithubProjectsComponent implements OnInit {
   @Input() view: number | undefined
 
   repos$: Repo[] = [];
-  error: { message: string } = { message: '' }
+  error?: { message: string }
+  loading: boolean = false
   constructor(private projectService: ProjectService) { }
 
   ngOnInit(): void {
@@ -19,7 +21,8 @@ export class GithubProjectsComponent implements OnInit {
   }
 
   getProjects(): void {
-    this.projectService.getProjects().subscribe((repos$) => {
+    this.loading = true
+    this.projectService.getProjects().pipe(finalize(()=> this.loading = false)).subscribe((repos$: Repo[] | string) => {
       if (typeof repos$ === 'string') {
         this.error = { message: repos$ }
       } else {
@@ -38,7 +41,6 @@ export class GithubProjectsComponent implements OnInit {
         this.view--
       }
     }
-    console.log(this.view)
   }
 
   private sortProjects(repos$: Repo[]) {

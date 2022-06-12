@@ -6,8 +6,10 @@
     <div *ngIf="!view" class="center">
         <a class="square-button" routerLink="/projects">Back to projects...</a>
     </div>
-    <h3 *ngIf="error.message.length > 0" class="error">{{error.message}}</h3>
-    <div class="project-list">
+    <app-loading-spinner *ngIf="loading"></app-loading-spinner>
+    <h3 *ngIf="error"
+      class="error">{{error?.message}}</h3>
+    <div *ngIf="repos$" class="project-list">
         <a *ngFor="let project of repos$.slice(0,view)" [href]="project.html_url" class="project">
             <h3>{{ project.name }}</h3>
             <p>{{ project.description }}</p>
