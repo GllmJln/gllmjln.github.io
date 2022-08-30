@@ -7,7 +7,7 @@
     <a class="square-button" routerLink="/projects">Back to projects...</a>
   </div>
   <app-loading-spinner *ngIf="loading"></app-loading-spinner>
-  <h3 *ngIf="error" class="error">{{ error?.message }}</h3>
+  <h3 *ngIf="error" class="error">{{ error.message }}</h3>
   <div *ngIf="repos" class="project-list">
     <a
       *ngFor="let project of repos.slice(0, view)"

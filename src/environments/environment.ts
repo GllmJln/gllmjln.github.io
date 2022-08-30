@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiURL: 'http://localhost:3000/repos',
-  statsApiUrl: 'https://localhost:3000/repos/OWNER/REPO/stats/commit_activity'
+  apiURL: 'http://localhost:3000/projects',
+  statsApiUrl: 'http://localhost:3000/repos',
 };
 
 /*
