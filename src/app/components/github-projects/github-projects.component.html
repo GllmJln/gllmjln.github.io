@@ -7,7 +7,9 @@
     <a class="square-button" routerLink="/projects">Back to projects...</a>
   </div>
   <app-loading-spinner *ngIf="loading"></app-loading-spinner>
-  <h3 *ngIf="error" class="error">{{ error.message }}</h3>
+  <ng-container *ngIf="errors.length">
+    <h3 *ngFor="let error of errors" class="error">{{ error }}</h3>
+  </ng-container>
   <div *ngIf="repos" class="project-list">
     <a
       *ngFor="let project of repos.slice(0, view)"
@@ -24,14 +26,16 @@
   </div>
   <div *ngIf="view" class="center">
     <a
-      *ngIf="view == repos.length"
+      *ngIf="view == repos?.length"
       class="square-button"
       routerLink="/projects/github"
       >View all</a
     >
-    <button class="square-button" (click)="handleClick()">
+    <button class="square-button" (click)="handleClick()" *ngIf="repos?.length">
       {{
-        view < repos.length ? "View more projects!" : "View less projects..."
+        view < (repos?.length ?? 0)
+          ? "View more projects!"
+          : "View less projects..."
       }}
     </button>
   </div>

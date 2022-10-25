@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { finalize, take } from 'rxjs';
+import { ErrorService } from 'src/app/services/error.service';
 import { Repo, RepoWithCommit } from 'src/models/github-repos';
 import { ProjectService } from '../../services/project.service';
 
@@ -11,10 +12,13 @@ import { ProjectService } from '../../services/project.service';
 export class GithubProjectsComponent implements OnInit {
   @Input() view: number | undefined;
 
-  repos: RepoWithCommit[] = [];
+  repos: RepoWithCommit[] | undefined;
   error?: { message: string };
   loading: boolean = false;
-  constructor(private projectService: ProjectService) {}
+  constructor(
+    private projectService: ProjectService,
+    private errorService: ErrorService
+  ) {}
 
   ngOnInit(): void {
     this.projectService.getProjects();
@@ -28,17 +32,17 @@ export class GithubProjectsComponent implements OnInit {
         take(1),
         finalize(() => (this.loading = false))
       )
-      .subscribe((repos$: RepoWithCommit[] | string) => {
-        if (typeof repos$ === 'string') {
-          this.error = { message: repos$ };
-        } else {
-          this.repos = repos$;
-        }
+      .subscribe((repos$: RepoWithCommit[] | undefined) => {
+        this.repos = repos$;
       });
   }
 
+  get errors() {
+    return this.errorService.errors;
+  }
+
   handleClick() {
-    if (this.view) {
+    if (this.view && this.repos) {
       if (this.view < this.repos.length) {
         this.view = Math.min((this.view += 4), this.repos.length);
       } else if (this.view > 4) {
