@@ -1,6 +1,6 @@
 import { APP_BASE_HREF } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ErrorService } from 'src/app/services/error.service';
+import { ErrorService } from '../../services/error.service';
 import { AppModule } from '../../app.module';
 
 import { GithubProjectsComponent } from './github-projects.component';
