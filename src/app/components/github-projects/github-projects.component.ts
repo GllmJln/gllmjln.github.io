@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { finalize, take } from 'rxjs';
 import { ErrorService } from 'src/app/services/error.service';
-import { Repo, RepoWithCommit } from 'src/models/github-repos';
+import { RepoWithCommit } from 'src/models/github-repos';
 import { ProjectService } from '../../services/project.service';
 
 @Component({

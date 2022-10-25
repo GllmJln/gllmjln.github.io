@@ -1,21 +1,20 @@
 import { APP_BASE_HREF } from '@angular/common';
 import { TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AppModule } from './app.module';
+import { ErrorService } from './services/error.service';
+import { ProjectService } from './services/project.service';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
-      imports: [
-        AppModule
-      ],
+      declarations: [AppComponent],
+      imports: [AppModule],
       providers: [
-        { provide: APP_BASE_HREF, useValue: '/' }
-      ]
+        { provide: APP_BASE_HREF, useValue: '/' },
+        ProjectService,
+        ErrorService,
+      ],
     }).compileComponents();
   });
 
@@ -30,5 +29,4 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     expect(app.title).toEqual('personal-website');
   });
-
 });

@@ -1,14 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Repo, RepoWithCommit } from 'src/models/github-repos';
-import {
-  catchError,
-  map,
-  Observable,
-  of,
-  switchMap,
-  forkJoin,
-  filter,
-} from 'rxjs';
+import { catchError, map, Observable, of, switchMap, forkJoin } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Activity } from 'src/models/repo-commit-activity';

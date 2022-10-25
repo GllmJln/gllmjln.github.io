@@ -1,5 +1,6 @@
 import { APP_BASE_HREF } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ErrorService } from 'src/app/services/error.service';
 import { AppModule } from '../../app.module';
 
 import { GithubProjectsComponent } from './github-projects.component';
@@ -12,11 +13,8 @@ describe('GithubProjectsComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [GithubProjectsComponent],
       imports: [AppModule],
-      providers: [
-        { provide: APP_BASE_HREF, useValue: '/' }
-      ]
-    })
-      .compileComponents();
+      providers: [{ provide: APP_BASE_HREF, useValue: '/' }, ErrorService],
+    }).compileComponents();
   });
 
   beforeEach(() => {
