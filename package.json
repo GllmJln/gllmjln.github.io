@@ -10,7 +10,7 @@
     "test": "jest --max-workers=3 --colors --coverage",
     "test:coverage": "jest --coverage",
     "mock-api": "json-server --watch db.json --routes routes.json",
-    "deploy": "git add . && git stash && git checkout gh-pages && git merge master && npm run test && ng build && ngh --dir=dist/personal-website && git checkout master && git stash pop"
+    "deploy": "ng deploy"
   },
   "private": true,
   "dependencies": {
@@ -32,6 +32,7 @@
     "@angular/compiler-cli": "^14.2.7",
     "@types/jest": "^27.5.2",
     "@types/node": "^12.11.1",
+    "angular-cli-ghpages": "^1.0.3",
     "jest": "^28.1.0",
     "jest-preset-angular": "^12.0.1",
     "karma-coverage": "~2.1.0",
