@@ -10,7 +10,7 @@ import { ProjectService } from '../../services/project.service';
   styleUrls: ['./github-projects.component.scss'],
 })
 export class GithubProjectsComponent implements OnInit {
-  @Input() view: number | undefined;
+  @Input() view?: number;
 
   repos: RepoWithCommit[] | undefined;
   error?: { message: string };
@@ -21,11 +21,11 @@ export class GithubProjectsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.projectService.getProjects();
     this.getProjects();
   }
 
   getProjects(): void {
+    this.projectService.getProjects();
     this.loading = true;
     this.projectService.projectData$
       .pipe(
@@ -44,7 +44,7 @@ export class GithubProjectsComponent implements OnInit {
   handleClick() {
     if (this.view && this.repos) {
       if (this.view < this.repos.length) {
-        this.view = Math.min((this.view += 4), this.repos.length);
+        this.view = Math.min(this.view + 4, this.repos.length);
       } else if (this.view > 4) {
         this.view = 4;
       } else {

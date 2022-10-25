@@ -4,7 +4,7 @@ nav {
   display: flex;
   position: relative;
   justify-content: flex-end;
-  background-color: var(--backgroud-gray);
+  background-color: var(--background-gray);
   border-color: var(--green);
   border-bottom: 2px;
   width: 100%;
@@ -13,7 +13,8 @@ nav {
 .nav-link {
   padding: 10px;
   text-decoration: none;
-  color: var(--white)
+  color: var(--white);
+  font-family: sans-serif;
 }
 
 .nav-link:hover {
