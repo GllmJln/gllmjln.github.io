@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { finalize, take } from 'rxjs';
-import { ErrorService } from '../../services/error.service';
+import { ErrorService } from '../../services/error/error.service';
 import { RepoWithCommit } from 'src/models/github-repos';
-import { ProjectService } from '../../services/project.service';
+import { ProjectService } from '../../services/project/project.service';
 
 @Component({
   selector: 'app-github-projects',
@@ -13,19 +13,17 @@ export class GithubProjectsComponent implements OnInit {
   @Input() view?: number;
 
   repos: RepoWithCommit[] | undefined;
-  error?: { message: string };
   loading: boolean = false;
   constructor(
     private projectService: ProjectService,
     private errorService: ErrorService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getProjects();
   }
 
   getProjects(): void {
-    this.projectService.getProjects();
     this.loading = true;
     this.projectService.projectData$
       .pipe(

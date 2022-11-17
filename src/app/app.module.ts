@@ -9,6 +9,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProjectsPageComponent } from './pages/projects-page/projects-page.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import { StoreModule } from "@ngrx/store"
+import { reducers } from './store/store.model';
+import { StoreDevtoolsModule } from "@ngrx/store-devtools"
 
 @NgModule({
   declarations: [
@@ -19,8 +22,17 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
     ProjectsPageComponent,
     LoadingSpinnerComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument({
+      name: 'Personal Website',
+      maxAge: 25
+    })
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
