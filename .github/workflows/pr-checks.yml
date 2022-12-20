@@ -1,0 +1,26 @@
+name: PR-Checks 
+
+on:
+  pull_request:
+    branches: ['master']
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Get node-version
+        id: get-node-version  
+        run: echo "::set-output name=node-version::$(cat .nvmrc | sed/\*/x/g)"
+      - name: Setup Node.js ${{ steps.get-node-version.outputs.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ steps.get-node-version.outputs.node-version }}
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Build
+        run: npm run build -- --configuration production
+      - name: Run tests
+        run: npm run test
