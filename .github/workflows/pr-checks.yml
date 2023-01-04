@@ -35,8 +35,6 @@ jobs:
 
       - name: View PR author
         run: echo "This PR is opened by ${{ github.event.pull_request.user.login }} ."
-      - name: View PR number
-        run: echo "This is PR number ${{ steps.pr_number.outputs.PR_NUMBER }} ."
 
       - name: Merge PR
         if: ${{ success() && github.event.pull_request.user.login == 'dependabot' }}
