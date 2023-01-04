@@ -10,13 +10,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Get node-version
-        id: get-node-version  
-        run: echo "::set-output name=node-version::$(cat .nvmrc | sed/\*/x/g)"
+      - name: Retrieve version
+        run: |
+          echo "NODE_VERSION=$(cat .nvmrc | sed /\*/x/g)" >> $GITHUB_OUTPUT
+        id: node_version
       - name: Setup Node.js ${{ steps.get-node-version.outputs.node-version }}
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ steps.get-node-version.outputs.node-version }}
+          node-version: ${{ steps.node_version.outputs.NODE_VERSION }}
           cache: 'npm'
       - name: Install dependencies
         run: npm ci
@@ -24,3 +25,22 @@ jobs:
         run: npm run build -- --configuration production
       - name: Run tests
         run: npm run test
+
+      - name: Retrieve PR number
+        run: |
+          echo "PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')" >> $GITHUB_OUTPUT
+        id: pr_number
+
+      - name: View PR author
+        run: echo "This PR is opened by ${{ github.event.pull_request.user.login }} ."
+      - name: View PR number
+        run: echo "This is PR number ${{ steps.pr_number.outputs.PR_NUMBER }} ."
+
+      - name: Merge PR
+        if: ${{ success() && github.event.pull_request.user.login == "dependabot"}}
+        uses: juliangruber/merge-pull-request-action@v1
+          with:
+            github-token: ${{ secrets.GITHUB_TOKEN }}
+            number: ${{ steps.pr_number.outputs.PR_NUMBER }}
+            method: squash
+            repo: juliangruber/octokit-action
