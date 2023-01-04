@@ -39,7 +39,7 @@ jobs:
         run: echo "This is PR number ${{ steps.pr_number.outputs.PR_NUMBER }} ."
 
       - name: Merge PR
-        if: ${{ success() && github.event.pull_request.user.login == "dependabot"}}
+        if: ${{ success() && github.event.pull_request.user.login == "dependabot" }}
         uses: juliangruber/merge-pull-request-action@v1
           with:
             github-token: ${{ secrets.GITHUB_TOKEN }}
