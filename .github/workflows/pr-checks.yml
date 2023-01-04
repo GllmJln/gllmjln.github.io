@@ -1,4 +1,6 @@
 name: PR-Checks 
+# This workflow runs tests and build
+# If dependency PR and build and test pass, merge
 
 on:
   pull_request:
