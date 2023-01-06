@@ -5,7 +5,7 @@ on:
     branches: ['master']
 
 jobs:
-  build_and_test:
+  build_and_deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,7 +26,7 @@ jobs:
         run: npm run test
 
       - name: Deploy
-        run: ng deploy
+        run: npx -p @angular/cli ng deploy
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
