@@ -26,7 +26,7 @@ jobs:
         run: npm run test
 
       - name: Deploy
-        run: npx -p @angular/cli ng deploy
+        run: npx -p @angular/cli ng deploy --no-silent
         env:
           GH_TOKEN: ${{ secrets.DEPLOY_PAGES }}
 
