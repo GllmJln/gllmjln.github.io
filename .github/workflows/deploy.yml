@@ -26,7 +26,7 @@ jobs:
         run: npm run test
 
       - name: Deploy
-        run: npx -p @angular/cli ng deploy --name "Thegajout" --no-silent
+        if: ${{ success() }}
+        run: npx -p @angular/cli ng deploy
         env:
-          GH_TOKEN: ${{ secrets.DEPLOY_PAGES }}
-
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
