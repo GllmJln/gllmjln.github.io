@@ -27,6 +27,8 @@ jobs:
 
       - name: Deploy
         if: ${{ success() }}
-        run: npx -p @angular/cli ng deploy --no-silent --name "The gajout" --email="deploybot@deploy.com"
+        run: |
+          npm install -g @angular/cli
+          ng deploy --no-silent
         env:
           GITHUB_TOKEN: ${{ secrets.DEPLOY_PAGES }}
