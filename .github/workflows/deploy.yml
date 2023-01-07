@@ -27,6 +27,6 @@ jobs:
 
       - name: Deploy
         if: ${{ success() }}
-        run: npx -p @angular/cli ng deploy
+        run: npx -p @angular/cli ng deploy --no-silent
         env:
           GITHUB_TOKEN: ${{ secrets.DEPLOY_PAGES }}
