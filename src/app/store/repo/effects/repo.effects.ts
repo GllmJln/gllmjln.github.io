@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, switchMap, of } from 'rxjs';
 import { ProjectService } from 'src/app/services/project/project.service';
-import { fetchRepos, fetchReposFailed, fetchReposSuccess } from './repo.actions';
+import { fetchRepos, fetchReposSuccess, fetchReposFailed } from '../actions/repo.actions';
 
 @Injectable()
 export class ReposEffects {
