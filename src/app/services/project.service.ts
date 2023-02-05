@@ -13,7 +13,7 @@ export class ProjectService {
   constructor(private http: HttpClient, private errorService: ErrorService) { }
 
   private projects: Observable<Repo[] | undefined> = of(undefined);
-  private getUrl = environment.apiURL.replace('OWNER', 'GllmJln');
+  private getUrl = environment.apiURL.replace('OWNER', 'gllmjln');
   private detailsUrl = environment.statsApiUrl;
 
   getProjects() {

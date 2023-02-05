@@ -1,5 +1,5 @@
 <section id="github-projects">
-  <a href="https://github.com/GllmJln" class="title-link">
+  <a href="https://github.com/gllmjln" class="title-link">
     <h2>Github hosted projects</h2>
   </a>
   <hr />
@@ -11,11 +11,7 @@
     <h3 *ngFor="let error of errors" class="error">{{ error }}</h3>
   </ng-container>
   <div *ngIf="repos" class="project-list">
-    <a
-      *ngFor="let project of repos.slice(0, view)"
-      [href]="project.html_url"
-      class="project"
-    >
+    <a *ngFor="let project of repos.slice(0, view)" [href]="project.html_url" class="project">
       <h3>{{ project.name }}</h3>
       <p>{{ project.description }}</p>
       <p>Last updated: {{ project.pushed_at | date }}</p>
@@ -25,18 +21,9 @@
     </a>
   </div>
   <div *ngIf="view" class="center">
-    <a
-      *ngIf="view === repos?.length"
-      class="square-button"
-      routerLink="/projects/github"
-      >View all</a
-    >
+    <a *ngIf="view === repos?.length" class="square-button" routerLink="/projects/github">View all</a>
     <button class="square-button" (click)="handleClick()" *ngIf="repos?.length">
       {{
-        view < (repos?.length ?? 0)
-          ? "View more projects!"
-          : "View less projects..."
-      }}
-    </button>
+      view < (repos?.length ?? 0) ? "View more projects!" : "View less projects..." }} </button>
   </div>
 </section>
