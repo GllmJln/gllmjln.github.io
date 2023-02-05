@@ -10,10 +10,10 @@ import { ErrorService } from './error.service';
   providedIn: 'root',
 })
 export class ProjectService {
-  constructor(private http: HttpClient, private errorService: ErrorService) {}
+  constructor(private http: HttpClient, private errorService: ErrorService) { }
 
   private projects: Observable<Repo[] | undefined> = of(undefined);
-  private getUrl = environment.apiURL.replace('OWNER', 'Thegajout');
+  private getUrl = environment.apiURL.replace('OWNER', 'GllmJln');
   private detailsUrl = environment.statsApiUrl;
 
   getProjects() {
