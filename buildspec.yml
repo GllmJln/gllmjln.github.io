@@ -14,4 +14,5 @@ phases:
       - npm run build
   post_build:
     commands:
+      - echo $OUTPUT_BUCKET
       - aws s3 cp dist/* s3://$OUTPUT_BUCKET
