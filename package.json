@@ -8,6 +8,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "jest --max-workers=3 --colors --coverage",
+    "test:ci": "jest --max-workers=3",
     "test:coverage": "jest --coverage",
     "mock-api": "json-server --watch db.json --routes routes.json",
     "deploy": "ng deploy"
