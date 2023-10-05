@@ -21,3 +21,5 @@ Run `npm run test` to execute the unit tests via [Jest](https://jestjs.io/).
 
 Run `npm run deploy` to deploy the application to Github pages using [angular-cli-ghpages](https://github.com/angular-schule/angular-cli-ghpages).
 
+### Testing something
+![Nothing to see here](http://localhost:8080/stats/gllmjln)
