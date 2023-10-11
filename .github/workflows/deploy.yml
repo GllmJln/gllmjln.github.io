@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Retrieve version
         run: |
-          echo "NODE_VERSION=$(cat .nvmrc | sed /\*/x/g)" >> $GITHUB_OUTPUT
+          echo "NODE_VERSION=$(cat .nvmrc | sed s/\*/x/g)" >> $GITHUB_OUTPUT
         id: node_version
       - name: Setup Node.js ${{ steps.get-node-version.outputs.node-version }}
         uses: actions/setup-node@v3
@@ -29,6 +29,6 @@ jobs:
         if: ${{ success() }}
         run: |
           npm install -g @angular/cli
-          ng deploy --no-silent
+          ng deploy --no-silent --name="GllmJln" --email="82282728+GllmJln@users.noreply.github.com"
         env:
           GITHUB_TOKEN: ${{ secrets.DEPLOY_PAGES }}
