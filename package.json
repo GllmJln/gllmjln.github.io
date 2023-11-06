@@ -30,7 +30,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "^16.0.3",
     "@angular/cli": "^16.0.3",
-    "@angular/compiler-cli": "^16.0.3",
+    "@angular/compiler-cli": "^16.2.12",
     "@types/jest": "^27.5.2",
     "@types/node": "^20.8.4",
     "angular-cli-ghpages": "^1.0.5",
