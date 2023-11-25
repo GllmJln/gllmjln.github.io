@@ -1,6 +1,6 @@
 # Personal Website
 
-This is a personal website mostly used from practicing angular and the jest framework. The website can be accessed [here](https://gllmjln.github.io).
+This was a personal website mostly used from practicing angular and the jest framework. Website has now moved to guillaumejulien.dev and is in repository [guillaumejulien.dev](https://github.com/GllmJln/guillaumejulien.dev).
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
 ## Running locally
